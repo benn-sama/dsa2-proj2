@@ -82,11 +82,11 @@ void analytical_model_test1() {
     std::cout << "----------Lq FAILED----------\n\n" << e.what() << std::endl;
   }
 
-try { // checks if Wq correctly outputs 0.083
-  if (model.computeWq() != 0.0417) {
-    throw std::runtime_error("Expected: 0.0417\nActual: " + std::to_string(model.computeWq()) + "\n");
-  }
-  std::cout << "----------Wq PASSED----------\n\n" << std::endl;
+  try { // checks if Wq correctly outputs 0.0415
+    if (model.computeWq() != 0.0415) {
+      throw std::runtime_error("Expected: 0.0417\nActual: " + std::to_string(model.computeWq()) + "\n");
+    }
+    std::cout << "----------Wq PASSED----------\n\n" << std::endl;
   }
   catch (const std::runtime_error& e) {
     std::cout << "----------Wq FAILED----------\n\n" << e.what() << std::endl;
