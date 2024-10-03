@@ -52,15 +52,46 @@ void analytical_model_test1() {
     std::cout << "----------P0 FAILED----------\n\n" << e.what() << std::endl;
   }
 
-  try { // checks if P0 correctly outputs 0.5
-    if (model.computeLq() != 0.75) {
-      throw std::runtime_error("Expected: 0.75\nActual: " + std::to_string(model.computeLq()) + "\n");
+  try { // checks if L correctly outputs 0.5
+    if (model.computeL() != 0.75) {
+      throw std::runtime_error("Expected: 0.75\nActual: " + std::to_string(model.computeL()) + "\n");
     }
-    std::cout << "----------P0 PASSED----------\n\n" << std::endl;
+    std::cout << "----------Lq PASSED----------\n\n" << std::endl;
   }
   catch (const std::runtime_error& e) {
-    std::cout << "----------P0 FAILED----------\n\n" << e.what() << std::endl;
+    std::cout << "----------Lq FAILED----------\n\n" << e.what() << std::endl;
   }
+
+  try { // checks if W correctly outputs 0.375
+    if (model.computeW() != 0.375) {
+      throw std::runtime_error("Expected: 0.375\nActual: " + std::to_string(model.computeW()) + "\n");
+    }
+    std::cout << "----------W PASSED----------\n\n" << std::endl;
+  }
+  catch (const std::runtime_error& e) {
+    std::cout << "----------W FAILED----------\n\n" << e.what() << std::endl;
+  }
+
+  try { // checks if Lq correctly outputs 0.083
+    if (model.computeLq() != 0.083) {
+      throw std::runtime_error("Expected: 0.083\nActual: " + std::to_string(model.computeLq()) + "\n");
+    }
+    std::cout << "----------Lq PASSED----------\n\n" << std::endl;
+  }
+  catch (const std::runtime_error& e) {
+    std::cout << "----------Lq FAILED----------\n\n" << e.what() << std::endl;
+  }
+
+try { // checks if Wq correctly outputs 0.083
+  if (model.computeWq() != 0.0417) {
+    throw std::runtime_error("Expected: 0.0417\nActual: " + std::to_string(model.computeWq()) + "\n");
+  }
+  std::cout << "----------Wq PASSED----------\n\n" << std::endl;
+  }
+  catch (const std::runtime_error& e) {
+    std::cout << "----------Wq FAILED----------\n\n" << e.what() << std::endl;
+  }
+
 }
 
 int main() {
