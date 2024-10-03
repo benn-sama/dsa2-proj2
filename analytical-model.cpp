@@ -14,7 +14,7 @@ double AnalyticalModel::computeSummation(int M, double lambda, double mu) { // c
   double sum            = 0;
   double summationIndex = 0;
 
-  for (int i = 0; i <= bound; ++i) {
+  for (int i = 0; i <= bound; ++i) { 
     summationIndex  = pow(lambda/mu, i);
     summationIndex /= factorial(i);
 
@@ -31,6 +31,7 @@ double AnalyticalModel::computeP0() { // computes idle time of the system
   double sum      = computeSummation(this->M, this->lambda, this->mu);
   double dividend = 0.00;
   double divisor  = 0.00;
+  std::string roundNearestTenth = "";
 
   dividend  = (pow(this->lambda/this->mu, this->M)) * M * mu;
 
@@ -38,10 +39,18 @@ double AnalyticalModel::computeP0() { // computes idle time of the system
 
   P0 = 1 / (sum + (dividend/divisor));
 
+  roundNearestTenth = std::to_string(P0);
+  roundNearestTenth.erase(3, roundNearestTenth.length());
+  P0 = std::stod(roundNearestTenth);
+
   return P0;
 }
 
 double AnalyticalModel::computeL() { // computes avg. number of people in the system
+  double dividend = 0.00;
+  double divisor  = 0.00;
+
+  dividend = (lambda * mu * (std::pow(lambda/mu, M)));
   return 0.00;
 }
 

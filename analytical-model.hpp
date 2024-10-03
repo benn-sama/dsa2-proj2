@@ -1,6 +1,9 @@
 #ifndef ANALYTICAL_MODEL_HPP
 #define ANALYTICAL_MODEL_HPP
 #include <cmath>
+#include <string>
+#include <iomanip>
+#include <iostream>
 
 class AnalyticalModel {
   private:
