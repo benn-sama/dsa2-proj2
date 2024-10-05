@@ -96,5 +96,7 @@ void analytical_model_test1() {
 
 int main() {
   analytical_model_test1();
+  
+  return 0;
 
 }

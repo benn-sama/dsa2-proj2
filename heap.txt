@@ -1,0 +1,39 @@
+
+
+void buildHeap() {
+  int i;
+  for (i = size / 2; i > 0; --i) {
+    percolateDown();
+  }
+}
+
+void percolateUp(x) { // for adding
+  array[0] = x;
+  int slot = ++theSize;
+
+  while(x < array[slot]/2) {
+    array[slot] = array[slot / 2];
+    slot /= 2;
+  }
+  array[slot] x;
+}
+
+void percolateDown(int slot) { // for deleting
+  int child;
+  int tmp = array[slot];
+
+  while (slot * 2 <= theSize) {
+    child = slot * 2;
+    if ((child != theSize) && (array[child + 1] < array[child])) {
+      ++child;
+    }
+    if(array[child] < tmp) {
+      array[slot] = array[child];
+    }
+    else {
+      break; // get out of loop
+    }
+    slot = child;
+  }
+  array[slot] = tmp;
+}
