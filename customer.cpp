@@ -7,8 +7,16 @@ Customer::Customer(float arrivalTime, float startOfTime, float departureTime) {
     this->nextCustomer = nullptr; // Initialize nextCustomer to nullptr
 }
 
-void Customer::addNextCustomer(Customer* nextCustomer) {
-    this->nextCustomer = nextCustomer;
+float Customer::getArrivalTime() {
+    return this->arrivalTime;
+}
+
+float Customer::getStartOfTime() {
+    return this->startOfTime;
+}
+
+float Customer::getDepartureTime() {
+    return this->departureTime;
 }
 
 Customer* Customer::getNextCustomer() {
