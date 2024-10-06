@@ -23,10 +23,10 @@ class AnalyticalModel {
   private:
     double lambda = 0.00;    // avg. number of arrivals
     double mu     = 0.00;     // avg. number we can serve per unit of time
-    int M         = 0;        // number of servce channels
+    int M         = 0;        // number of service channels
 
   public:
-    AnalyticalModel(double lambda, double mu, int M); // default constructor
+    AnalyticalModel(double lambda, double mu, int M); // constructor
     double computeP0();                // computes the idle time
     double computeL();                 // avg. number of people in the system
     double computeW();                 // avg. time a customer spends in the system; wait time + service time

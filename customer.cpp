@@ -22,7 +22,3 @@ float Customer::getDepartureTime() {
 Customer* Customer::getNextCustomer() {
     return this->nextCustomer;
 }
-
-Customer::~Customer() {
-  delete this->nextCustomer;
-}

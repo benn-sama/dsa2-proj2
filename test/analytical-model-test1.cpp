@@ -1,7 +1,6 @@
 #include "analytical-model.hpp"
 
 #include <iostream>
-#include <iostream>
 #include <string>
 #include <vector>
 #include <iomanip>

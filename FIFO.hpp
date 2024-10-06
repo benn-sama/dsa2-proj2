@@ -27,9 +27,9 @@ class FIFO {
   public:
     FIFO();         // default constructor
     bool isEmpty(); // checks if FIFO is empty
-    void insert(float arrivalTime, float startOfTime, float departureTime);  // inserts new customer in the FIFO
+    void insert(Customer* customer);  // inserts new customer in the FIFO
     void serve();   // removes customer from the FIFO
-
+    ~FIFO();        // destructor method
 };
 
 #endif

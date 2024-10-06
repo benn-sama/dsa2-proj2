@@ -29,6 +29,7 @@ class PQ {
   void insert(Customer* customer);  // inserts a new node from pq
   void serve();                     // removes the root node
   void percolateDown(int index);    // maintains the min heap condition
+  int  getSize();                   // returns the size of the heap
 };
 
 #endif

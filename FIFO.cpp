@@ -1,7 +1,8 @@
 #include "FIFO.hpp"
 
-FIFO::FIFO() {
-  this->head = this->tail = nullptr; // assigns head and tail to nullptr
+FIFO::FIFO() { // assigns head and tail to nullptr
+  this->head = nullptr;
+  this->tail = nullptr;
 }
 
 bool FIFO::isEmpty() { // checks if FIFO is empty
@@ -11,13 +12,12 @@ bool FIFO::isEmpty() { // checks if FIFO is empty
   return false;
 }
 
-void FIFO::insert(float arrivalTime, float startOfTime, float departureTime) { // inserts new node at the end
-  // creates a new customer
-  Customer* newCustomer = new Customer(arrivalTime, startOfTime, departureTime);
+void FIFO::insert(Customer* newCustomer) { // inserts new node at the end
 
   // checks if FIFO is empty, if so, assigns first customer to the head and tail
   if (this->isEmpty()) {
-    this->head = this->tail = nullptr;
+    this->head = newCustomer;
+    this->tail = newCustomer;
     return;
   }
 
@@ -42,4 +42,10 @@ void FIFO::serve() {  // dequeues head of the node
   }
 
   delete tempCustomer;
+}
+
+FIFO::~FIFO() { // deallocates memory
+  while (this->head != nullptr) {
+    this->serve();
+  }
 }

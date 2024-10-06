@@ -58,3 +58,6 @@ void PQ::percolateDown(int index) { // maintains min heap condition
   minHeap[index] = temp;
 }
 
+int PQ::getSize() {
+  return this->size;
+}

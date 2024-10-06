@@ -29,7 +29,6 @@ class Customer {
     float getArrivalTime();                      // returns arrival time
     float getStartOfTime();                       // returns start of time
     float getDepartureTime();                     // return departure time
-    ~Customer();                                  // destructor method
 };
 
 
