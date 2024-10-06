@@ -1,4 +1,4 @@
-HEADERS = analytical-model.hpp pq.hpp FIFO.hpp customer.hpp simulation.hpp poisson-random-generator.hpp
+HEADERS = analytical-model.hpp pq.hpp FIFO.hpp customer.hpp poisson-random-generator.hpp
 TEST_SOURCES = test/analytical-model-test1.cpp test/customer-test1.cpp test/fifo-test1.cpp test/pq-test1.cpp test/random-arrival-time-test1.cpp
 TEST_OBJECTS = $(TEST_SOURCES:.cpp=.o)
 MAIN_OBJECTS = main.o analytical-model.o pq.o FIFO.o customer.o simulation.o poisson-random-generator.o
@@ -12,7 +12,7 @@ CXXFLAGS = -std=c++11 -Wall -Wextra -I.
 
 all: $(TEST_TARGETS) $(MAIN_TARGET)
 
-$(TEST_TARGETS): %.out: %.o analytical-model.o pq.o FIFO.o customer.o
+$(TEST_TARGETS): %.out: %.o analytical-model.o pq.o FIFO.o customer.o poisson-random-generator.o
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
 $(MAIN_TARGET): $(MAIN_OBJECTS)
