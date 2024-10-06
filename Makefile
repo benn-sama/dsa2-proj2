@@ -1,10 +1,10 @@
 CXX = g++
 CXXFLAGS = -g -std=c++14 -Wall -Werror=return-type -Werror=uninitialized -Wno-sign-compare -I.
 
-HEADERS = analytical-model.hpp pq.hpp FIFO.hpp customer.hpp
+HEADERS = analytical-model.hpp pq.hpp FIFO.hpp customer.hpp simulation.hpp
 TEST_SOURCES = test/analytical-model-test1.cpp test/customer-test1.cpp
 TEST_OBJECTS = $(TEST_SOURCES:.cpp=.o)
-MAIN_OBJECTS = main.o analytical-model.o pq.o FIFO.o customer.o
+MAIN_OBJECTS = main.o analytical-model.o pq.o FIFO.o customer.o simulation.o
 TEST_TARGETS = $(TEST_SOURCES:.cpp=.out)
 MAIN_TARGET = main_executable
 
@@ -35,6 +35,9 @@ customer.o: customer.cpp customer.hpp
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
 FIFO.o: FIFO.cpp FIFO.hpp
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
+
+simulation.o: simulation.cpp simulation.hpp
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
 main.o: main.cpp
