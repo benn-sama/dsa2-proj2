@@ -4,7 +4,9 @@
 void testArrivalTime() {
   Poisson poisson;
 
-  std::cout << poisson.randomArrivalTime(2);
+  std::cout << "Random Arrivale Time: " << poisson.randomArrivalTime(2) << std::endl;
+  std::cout << "Random Service Time: " << poisson.randomServiceTime(2) << std::endl;
+
 }
 
 int main () {

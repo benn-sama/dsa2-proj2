@@ -26,10 +26,10 @@ void FIFO::insert(Customer* newCustomer) { // inserts new node at the end
   this->tail = newCustomer;
 }
 
-void FIFO::serve() {  // dequeues head of the node
+Customer* FIFO::serve() {  // dequeues head of the node
   // checks if queue is empty
   if (this->head == nullptr) {
-    return;
+    return nullptr;
   }
 
   // assigns the head to a temp  node, and assigns the head to null;
@@ -41,7 +41,7 @@ void FIFO::serve() {  // dequeues head of the node
     this->tail = nullptr;
   }
 
-  delete tempCustomer;
+  return tempCustomer;
 }
 
 FIFO::~FIFO() { // deallocates memory

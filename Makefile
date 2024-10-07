@@ -1,4 +1,4 @@
-HEADERS = analytical-model.hpp pq.hpp FIFO.hpp customer.hpp poisson-random-generator.hpp
+HEADERS = analytical-model.hpp pq.hpp FIFO.hpp customer.hpp poisson-random-generator.hpp simulation.hpp
 TEST_SOURCES = test/analytical-model-test1.cpp test/customer-test1.cpp test/fifo-test1.cpp test/pq-test1.cpp test/random-arrival-time-test1.cpp
 TEST_OBJECTS = $(TEST_SOURCES:.cpp=.o)
 MAIN_OBJECTS = main.o analytical-model.o pq.o FIFO.o customer.o simulation.o poisson-random-generator.o
@@ -8,11 +8,11 @@ MAIN_TARGET = main_executable
 CXX = g++
 CXXFLAGS = -std=c++11 -Wall -Wextra -I.
 
-.PHONY: all run-test main clean
+.PHONY: all run-test main run-main clean
 
 all: $(TEST_TARGETS) $(MAIN_TARGET)
 
-$(TEST_TARGETS): %.out: %.o analytical-model.o pq.o FIFO.o customer.o poisson-random-generator.o
+$(TEST_TARGETS): %.out: %.o analytical-model.o pq.o FIFO.o customer.o poisson-random-generator.o simulation.o
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
 $(MAIN_TARGET): $(MAIN_OBJECTS)
@@ -25,6 +25,9 @@ run-test: $(TEST_TARGETS)
 	for test in $(TEST_TARGETS); do ./$$test; done
 
 main: $(MAIN_TARGET)
+
+run-main: main
+	./$(MAIN_TARGET)
 
 clean:
 	rm -f $(TEST_OBJECTS) $(TEST_TARGETS) $(MAIN_OBJECTS) $(MAIN_TARGET)

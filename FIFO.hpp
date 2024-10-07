@@ -28,7 +28,7 @@ class FIFO {
     FIFO();         // default constructor
     bool isEmpty(); // checks if FIFO is empty
     void insert(Customer* customer);  // inserts new customer in the FIFO
-    void serve();   // removes customer from the FIFO
+    Customer* serve();   // removes customer from the FIFO
     ~FIFO();        // destructor method
 };
 
