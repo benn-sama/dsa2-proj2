@@ -147,6 +147,7 @@ void Simulation::showSimulationResults() { // method to show the simulation resu
     std::cout << "L: " << analyticalModelSim.computeL() << std::endl;
     std::cout << "W: " << analyticalModelSim.computeW() << std::endl;
     std::cout << "Wq: " << analyticalModelSim.computeWq() << std::endl;
+    std::cout << "Roe: " << (this->M * this->totalSimulationTime) / this->serviceTime << std::endl;
 }
 
 
