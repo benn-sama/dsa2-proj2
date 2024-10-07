@@ -32,7 +32,6 @@ class AnalyticalModel {
     double computeW();                 // avg. time a customer spends in the system; wait time + service time
     double computeLq();                // avg. number of customers in queue
     double computeWq();                // avg. time a customer waits in queue
-    double computeRoe();               // porportion of the system's resources used by arrival of traffic
     static long long factorial(int n); // computes factorial numbers
     double computeSummation(int M, double lambda, double mu); // computes summation
 };

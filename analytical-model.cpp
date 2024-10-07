@@ -75,10 +75,6 @@ double AnalyticalModel::computeWq() { // computers avg. time a customer waits in
   return Wq;
 }
 
-double AnalyticalModel::computeRoe() { // computes porportion of the system's resources used by arrival of traffic
-  return 0.00;
-}
-
 long long AnalyticalModel::factorial(int n) { // computes factorial numbers
   if (n == 0) {
     return 1;
